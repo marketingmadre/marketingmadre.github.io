@@ -98,7 +98,7 @@ const SITE = {
 
   // sections fade up as they scroll into view
   if (canObserve) {
-    const sel = ".eyebrow, .rule, h2, .lead, .quote, .sub, .cta-row, .pillar, .tier, .timeline-item, .testimonials, .contact-card, .placeholder, .grid-4 > div";
+    const sel = ".eyebrow, .rule, h2, .lead, .quote, .sub, .cta-row, .pillar, .tier, .timeline-item, .testimonials, .contact-card, .placeholder, .grid-4 > div, .mapa, .compare, .menu-group";
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (!e.isIntersecting) return;

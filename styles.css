@@ -320,13 +320,88 @@ section { padding: clamp(72px, 10vw, 128px) 0; position: relative; }
   background-size: 300% 100%;
   animation: sheen 4s ease-in-out infinite;
 }
-.tier .eyebrow { font-size: 12px; }
+.tier .eyebrow { font-size: 12px; letter-spacing: 0.18em; }
+/* keep the three package names and prices level, even when a label wraps */
+@media (min-width: 961px) { .packages > .tier > .eyebrow { min-height: 3.4em; } }
 .tier h3 { margin: 10px 0 4px; }
 .tier .price { font-family: var(--serif); font-size: 52px; color: var(--brass); margin: 6px 0 4px; }
 .tier .price small { font-size: 18px; color: var(--muted); }
 .tier ul { list-style: none; margin: 20px 0 28px; flex: 1; }
 .tier li { padding: 9px 0; border-bottom: 1px solid rgba(235, 227, 214, 0.1); font-size: 15px; color: var(--muted); }
 .tier li::before { content: "—"; color: var(--brass); margin-right: 10px; }
+
+
+/* the hook: Mapa de Vuelo */
+.mapa {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 40px;
+  align-items: center;
+  border: 1px solid var(--brass);
+  padding: 40px;
+  background:
+    radial-gradient(ellipse 60% 90% at 100% 50%, rgba(176, 138, 78, 0.16), transparent 70%),
+    rgba(176, 138, 78, 0.04);
+}
+.mapa h3 { margin: 10px 0 12px; }
+.mapa p:not(.eyebrow):not(.price) { color: var(--muted); font-size: 15px; }
+.mapa-side { border-left: 1px solid rgba(176, 138, 78, 0.35); padding-left: 40px; }
+.mapa .price { font-family: var(--serif); font-size: 52px; color: var(--brass); line-height: 1.1; }
+.mapa .mapa-note { margin: 6px 0 20px; }
+@media (max-width: 760px) {
+  .mapa { grid-template-columns: 1fr; padding: 32px 24px; gap: 24px; }
+  .mapa-side { border-left: 0; padding-left: 0; border-top: 1px solid rgba(176, 138, 78, 0.35); padding-top: 24px; }
+}
+
+/* package comparison table */
+.compare { width: 100%; border-collapse: collapse; }
+.compare th {
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brass);
+  padding: 0 18px 14px;
+  border-bottom: 1px solid var(--brass);
+}
+.compare td { padding: 20px 18px; border-bottom: 1px solid rgba(235, 227, 214, 0.1); color: var(--muted); font-size: 15px; }
+.compare td:first-child { font-family: var(--serif); font-size: 22px; color: var(--bone); }
+.compare td:first-child em { color: var(--brass); }
+.compare .c-price { font-family: var(--serif); font-size: 26px; color: var(--brass); }
+.compare s { text-decoration-color: rgba(176, 138, 78, 0.8); }
+.compare .c-save { color: var(--bone); font-weight: 500; }
+.compare tr.featured td { background: rgba(176, 138, 78, 0.08); }
+.compare tbody tr { transition: background 0.3s; }
+.compare tbody tr:hover td { background: rgba(176, 138, 78, 0.12); }
+@media (max-width: 640px) {
+  .compare thead { display: none; }
+  .compare tr { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px; padding: 22px 18px; border-bottom: 1px solid rgba(235, 227, 214, 0.1); }
+  .compare tr.featured { background: rgba(176, 138, 78, 0.08); }
+  .compare tr.featured td, .compare tbody tr:hover td { background: none; }
+  .compare td { padding: 0; border: 0; }
+  .compare td:first-child { grid-column: 1 / -1; }
+  .compare td[data-es]::before {
+    display: block;
+    font: 500 11px var(--sans);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 2px;
+  }
+  html[lang="es"] .compare td[data-es]::before { content: attr(data-es); }
+  html[lang="en"] .compare td[data-en]::before { content: attr(data-en); }
+}
+
+/* individual services, laid out like a menu */
+.menu-list { columns: 2 340px; column-gap: 64px; }
+.menu-group { break-inside: avoid; margin-bottom: 44px; }
+.menu-group h3 { font-size: 26px; margin-bottom: 10px; }
+.menu-group ul { list-style: none; }
+.menu-group li { display: flex; align-items: baseline; gap: 10px; padding: 9px 0; font-size: 15px; color: var(--muted); }
+.menu-group li i { flex: 1; min-width: 24px; border-bottom: 1px dotted rgba(176, 138, 78, 0.6); transform: translateY(-4px); }
+.menu-group li b { font-family: var(--serif); font-weight: 400; font-size: 19px; color: var(--brass); white-space: nowrap; }
+.menu-group li b small { font-family: var(--sans); font-size: 12px; color: var(--muted); }
 
 .timeline { display: grid; gap: 44px; }
 .timeline-item { display: grid; grid-template-columns: 90px 1fr; gap: 24px; align-items: start; }
