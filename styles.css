@@ -362,6 +362,25 @@ section { padding: clamp(72px, 10vw, 128px) 0; position: relative; }
   .mapa-side { border-left: 0; padding-left: 0; border-top: 1px solid rgba(176, 138, 78, 0.35); padding-top: 24px; }
 }
 
+/* launch offer: the mapa block, louder */
+.mapa.launch {
+  position: relative;
+  border-width: 2px;
+  background:
+    radial-gradient(ellipse 55% 100% at 100% 50%, rgba(176, 138, 78, 0.3), transparent 70%),
+    linear-gradient(135deg, rgba(74, 30, 36, 0.9), rgba(20, 18, 16, 0.85));
+  box-shadow: 0 0 60px -24px rgba(176, 138, 78, 0.6);
+}
+.mapa.launch .mapa-side p.launch-num { font-family: var(--serif); font-size: clamp(84px, 11vw, 128px); line-height: 0.9; color: var(--brass); text-shadow: 0 0 36px rgba(176, 138, 78, 0.45); }
+.launch .launch-prices { list-style: none; margin: 20px 0 0; max-width: 360px; }
+.launch .launch-prices li { display: flex; align-items: baseline; gap: 12px; padding: 8px 0; border-bottom: 1px solid rgba(235, 227, 214, 0.1); font-size: 15px; }
+.launch .launch-prices li > span { flex: 1; color: var(--bone); }
+.launch .launch-prices s { color: var(--muted); opacity: 0.7; }
+.launch .launch-prices b { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--brass); }
+.mapa.launch p.launch-terms { font-size: 12px; letter-spacing: 0.04em; margin-top: 14px; opacity: 0.85; }
+.launch .spots { display: flex; gap: 10px; margin: 0 0 22px; }
+.launch .spots i { width: 34px; height: 34px; border: 1px solid var(--brass); border-radius: 50%; display: grid; place-items: center; font: 500 13px var(--sans); font-style: normal; color: var(--brass); }
+
 /* package comparison table */
 .compare { width: 100%; border-collapse: collapse; }
 .compare th {
