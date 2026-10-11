@@ -329,6 +329,15 @@ section { padding: clamp(72px, 10vw, 128px) 0; position: relative; }
 .tier ul { list-style: none; margin: 20px 0 28px; flex: 1; }
 .tier li { padding: 9px 0; border-bottom: 1px solid rgba(235, 227, 214, 0.1); font-size: 15px; color: var(--muted); }
 .tier li::before { content: "—"; color: var(--brass); margin-right: 10px; }
+/* full-width plan under the three monthly ones: summary left, list right */
+.tier-wide { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 0 48px; align-items: start; }
+.tier-wide ul { margin: 0; }
+.tier-wide .tier-note { color: var(--muted); font-size: 15px; margin: 8px 0 24px; max-width: 34ch; }
+.tier-wide .btn { align-self: start; }
+@media (max-width: 760px) {
+  .tier-wide { grid-template-columns: 1fr; }
+  .tier-wide ul { margin-top: 24px; }
+}
 
 
 /* the hook: Mapa de Vuelo */
@@ -464,6 +473,7 @@ section { padding: clamp(72px, 10vw, 128px) 0; position: relative; }
 .center { text-align: center; }
 .center .lead { margin-left: auto; margin-right: auto; }
 .mt-48 { margin-top: 48px; }
+.mt-28 { margin-top: 28px; }
 
 /* ---------- footer ---------- */
 .site-footer { border-top: 1px solid rgba(176, 138, 78, 0.25); padding: 48px 0; font-size: 14px; color: var(--muted); }
