@@ -333,6 +333,7 @@ section { padding: clamp(72px, 10vw, 128px) 0; position: relative; }
 .tier-wide { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 0 48px; align-items: start; }
 .tier-wide ul { margin: 0; }
 .tier-wide .tier-note { color: var(--muted); font-size: 15px; margin: 8px 0 24px; max-width: 34ch; }
+.plan-terms { font-size: 14px; opacity: 0.85; margin-top: 28px; max-width: 72ch; }
 .tier-wide .btn { align-self: start; }
 @media (max-width: 760px) {
   .tier-wide { grid-template-columns: 1fr; }
